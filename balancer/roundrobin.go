@@ -27,8 +27,8 @@ func (c *circularArray) next() interface{} {
 // RRBalancer implementation of BackendBalancer based on roundrobin algorithm
 // This implementation is thread safe and can be accessed concurrently.
 type RRBalancer struct {
-	currentBackends atomic.Value
-	mu              sync.Mutex
+	currentBackends atomic.Value // holds the circular array of backends.
+	mu              sync.Mutex   // used to lock concurrent writes.
 }
 
 // Load prepares a circular list of backend elements

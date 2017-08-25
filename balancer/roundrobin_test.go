@@ -47,14 +47,12 @@ func TestRoundRobinSequenceWithReload(t *testing.T) {
 
 	elts := make([]interface{}, 5)
 	for i := 0; i < 5; i++ {
-		elt := &TestStruct{i, 1}
-		elts[i] = elt
+		elts[i] = &TestStruct{i, 1}
 	}
 
 	elts2 := make([]interface{}, 10)
 	for i := 0; i < 10; i++ {
-		elt := &TestStruct{i, 2}
-		elts2[i] = elt
+		elts2[i] = &TestStruct{i, 2}
 	}
 
 	x.Load(elts)
